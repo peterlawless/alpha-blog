@@ -8,7 +8,11 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
   def sign_in_as(user, password)
-    post login_path, params: { session: {email: user.email, password: password} }
+    post login_path, params: { session: { email: user.email, password: password } }
+  end
+
+  def sign_up_as(user)
+    post users_path, params: { user: { username: user.username, email: user.email, password: user.password } }
   end
 
 end
